@@ -1,6 +1,7 @@
 package review_juc;
 
 public class MyRunnable implements Runnable {
+
     @Override
     public void run() {
         System.out.println("MyRunnable run...");
@@ -17,6 +18,5 @@ public class MyRunnable implements Runnable {
         // 调用start方法启动线程
         t1.start();
         t2.start();
-
     }
 }
