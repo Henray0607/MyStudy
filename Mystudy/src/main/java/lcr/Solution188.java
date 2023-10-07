@@ -8,12 +8,12 @@ public class Solution188 {
         if (prices == null || prices.length == 0) {
             return 0;
         }
-        int maxProfit = 0;
+        int profit = 0;
         int minPrice = prices[0];
         for (int i = 1; i < prices.length; i++) {
             minPrice = Math.min(minPrice, prices[i]);
-            maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+            profit = Math.max(profit, prices[i] - minPrice);
         }
-        return maxProfit;
+        return profit;
     }
 }
