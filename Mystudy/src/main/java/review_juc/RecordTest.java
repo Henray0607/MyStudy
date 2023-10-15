@@ -10,6 +10,7 @@ import org.openjdk.jcstress.infra.results.II_Result;
 public class RecordTest {
 
     int x;
+    // int y;
     volatile int y;
 
     @Actor
