@@ -5,8 +5,8 @@ package review_juc;
  */
 public class ForeverLoop {
     // 对多个线程的可见性
-    // public static boolean stop = false;
-    public static volatile boolean stop = false;
+    // public static boolean flag = false;
+    public static volatile boolean flag = false;
 
     public static void main(String[] args) {
         new Thread(() -> {
@@ -15,7 +15,7 @@ public class ForeverLoop {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            stop = true;
+            flag = true;
             System.out.println(Thread.currentThread().getName() + ": modify stop to true...");
         }, "t1").start();
 
@@ -25,13 +25,14 @@ public class ForeverLoop {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(Thread.currentThread().getName() + ": " + stop);
+            System.out.println(Thread.currentThread().getName() + ": " + flag);
         }, "t2").start();
 
         // VM Options配置参数:-Xint 禁用即时编译器
         new Thread(() -> {
             int i = 0;
-            while (!stop) {
+            // JIT即时编译器会优化为：while(true)
+            while (!flag) {
                 i++;
             }
             System.out.println("stopped... count: " + i);
