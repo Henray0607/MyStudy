@@ -4,8 +4,8 @@ package review_juc;
  * 可见性案例
  */
 public class ForeverLoop {
-    // public static boolean stop = false;
     // 对多个线程的可见性
+    // public static boolean stop = false;
     public static volatile boolean stop = false;
 
     public static void main(String[] args) {
