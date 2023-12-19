@@ -11,7 +11,7 @@ public class Solution003 {
             char c = s.charAt(right);
             window.put(c, window.getOrDefault(c, 0) + 1);
             right++;
-            while (window.get(c) > 1) {
+            while (left < right && window.get(c) > 1) {
                 char d = s.charAt(left);
                 window.put(d, window.get(d) - 1);
                 left++;
